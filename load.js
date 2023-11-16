@@ -165,7 +165,7 @@ function processVoice(voiceName, text) {
 			}
             case 'readloud': {
                 const req = https.request({
-                    host: 'readloud.net',
+                    host: 'gonutts.net',
                     path: voice.arg,
                     method: 'POST',
                     port: '443',
@@ -180,7 +180,7 @@ function processVoice(voiceName, text) {
                         const beg = html.indexOf('/tmp/');
                         const end = html.indexOf('.mp3', beg) + 4;
                         const sub = html.subarray(beg, end).toString();
-                        const loc = `https://readloud.net${sub}`;
+                        const loc = `https://gonutts.net${sub}`;
                         get(loc).then(res).catch(rej);
                     });
                     r.on('error', rej);
